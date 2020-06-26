@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import Homepage from "./pages/homepage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import './App.css';
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <div className="App" style={{ padding: "32px" }}>
+        <Switch>
+          <Route path="/" component={Homepage} />
+        </Switch>
+      </div>
+    </Router> 
+    //<div>helloworld</div>
   );
-}
+};
 
 export default App;
