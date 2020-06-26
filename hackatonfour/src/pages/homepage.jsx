@@ -9,10 +9,10 @@ const Homepage = () => {
     }, []);
 
     const fetchAllFlights = async () => {
-    const resp = await fetch("https://api.skypicker.com/flights?&limit=10");
-    const data = await resp.json();
-    // console.log(data);
-    setAllFlights(data);
+    const resp = await fetch("https://api.skypicker.com/flights?fly_from=PRG&partner=picky&fly_to=STN&limit=10");
+    const result = await resp.json();
+    console.log(result.data);
+    setAllFlights(result.data);
     
   };
  return (

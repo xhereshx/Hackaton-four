@@ -9,7 +9,7 @@ const Flight = ({ flight }) => {
         flex: "1 0 30%",
       }}
     >
-      <h2>{flight.search_id}</h2>
+      <h2>{flight.price}</h2>
     </div>
   );
 };
