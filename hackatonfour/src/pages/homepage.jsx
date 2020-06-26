@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Flight from "../components/Flight"; 
+import { Spinner } from 'reactstrap';
+
 
 const Homepage = () => {
     const [allFlights, setAllFlights] = useState([]);
@@ -8,15 +10,16 @@ const Homepage = () => {
       fetchAllFlights();
     }, []);
 
+
     const fetchAllFlights = async () => {
     const resp = await fetch("https://api.skypicker.com/flights?fly_from=PRG&partner=picky&fly_to=STN&limit=5");
     const result = await resp.json();
     console.log(result.data);
     setAllFlights(result.data);
-    
   };
  return (
     <>
+      
        {allFlights.length ? (
          <>
           <h1>All flights: </h1>
@@ -27,10 +30,14 @@ const Homepage = () => {
           </div>
          </>
        ) : (
-         <h1>No Flights Available</h1>
+         <div>
+            <h1>No Flights Available</h1>
+            <Spinner type="grow" color="primary"/>
+         </div>
+           
        )}
     </>
   );
 };
 
-  export default Homepage;
+export default Homepage;
